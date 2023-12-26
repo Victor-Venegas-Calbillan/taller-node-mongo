@@ -1,6 +1,6 @@
-<center>
+<p align="center">
 <img src='./images/exdev.png' height=150/>
-</center>
+</p>
 
 # Taller Node js + Mongo db
 
