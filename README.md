@@ -31,5 +31,5 @@ este taller esta dirigido a integrantes del Club de Desarrollo Experimental de l
 - crear un archivo `.env` en la raiz del proyecto y agregar las variables de entorno
 - ejecutar el comando `npm run dev` para iniciar el servidor
 
-> [!NOTA]
+> [!CAUTION]
 > este taller es solo para fines educativos, no se recomienda utilizar en produccion
