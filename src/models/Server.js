@@ -10,6 +10,7 @@ export default class Server {
     this.rutas = {
       notas: "/api/notas",
       usuarios: "/api/usuarios",
+      auth: "/api/auth",
     };
 
     //llamar a los metodos
@@ -24,6 +25,8 @@ export default class Server {
 
     //habilita las cors
     this.app.use(cors());
+
+    this.app.use(Express.static("src/public"));
   }
 
   //rutas del servidor
