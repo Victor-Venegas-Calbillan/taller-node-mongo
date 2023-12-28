@@ -12,6 +12,6 @@ userRouter.get("/", obtenerUsuarios);
 
 userRouter.post("/", crearUsuario);
 
-userRouter.patch("/", actualizarUsuario);
+userRouter.patch("/:id", actualizarUsuario);
 
-userRouter.delete("/", eliminarUsuario);
+userRouter.delete("/:id", eliminarUsuario);

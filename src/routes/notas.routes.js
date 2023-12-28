@@ -12,6 +12,6 @@ notesRouter.get("/", obtenerNotas);
 
 notesRouter.post("/", crearNota);
 
-notesRouter.patch("/", actualizarNota);
+notesRouter.patch("/:id", actualizarNota);
 
 notesRouter.delete("/", eleiminarNota);

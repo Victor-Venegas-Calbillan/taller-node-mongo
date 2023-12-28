@@ -1,6 +1,7 @@
 import Express from "express"; // -> Exportacion por defecto
 import cors from "cors";
 import { userRouter, notesRouter } from "../routes/index.js"; // -> exportacion por nombre
+import { dbConection } from "../db/config.js";
 
 export default class Server {
   //constructor de la clase
@@ -16,6 +17,7 @@ export default class Server {
     //llamar a los metodos
     this.utils();
     this.routes();
+    this.db();
   }
 
   //utilidades para el servidor
@@ -33,6 +35,11 @@ export default class Server {
   routes() {
     this.app.use(this.rutas.usuarios, userRouter);
     this.app.use(this.rutas.notas, notesRouter);
+  }
+
+  db() {
+    //conectar a la base de datos
+    dbConection();
   }
 
   //iniciar el servidor
