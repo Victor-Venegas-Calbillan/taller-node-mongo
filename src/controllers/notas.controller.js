@@ -1,27 +1,48 @@
-export const obtenerNotas = (request, response) => {
+import Notas from "../models/Notas.js";
+
+export const obtenerNotas = async (request, response) => {
+  const notas = await Notas.find().populate("usuario", "name");
+
   response.json({
     ok: true,
-    msg: "Bienvenido a las notas",
+    notas,
   });
 };
 
-export const crearNota = (request, response) => {
+export const crearNota = async (request, response) => {
+  const { ...data } = request.body;
+
+  const nota = new Notas(data);
+
+  await nota.save();
+
   response.json({
     ok: true,
-    msg: "Bienvenido a las notas",
+    nota,
   });
 };
 
-export const actualizarNota = (request, response) => {
+export const actualizarNota = async (request, response) => {
+  const { id } = request.params;
+
+  const { _id, ...resto } = request.body;
+
+  const nota = await Notas.findByIdAndUpdate(id, resto, {
+    new: true,
+  });
+
   response.json({
     ok: true,
-    msg: "Bienvenido a las notas",
+    nota,
   });
 };
 
-export const eleiminarNota = (request, response) => {
+export const eleiminarNota = async (request, response) => {
+  const { id } = request.params;
+
+  await Notas.findByIdAndDelete(id);
+
   response.json({
     ok: true,
-    msg: "Bienvenido a las notas",
   });
 };
